@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  --theme-bg: #0a0e16;
+  --theme-bg-rgb: 10, 14, 22;
+  --theme-card: #111722;
+  --theme-card-rgb: 17, 23, 34;
+  --theme-header: #0f141c;
+  --theme-inner: #0a0e16;
+  --theme-primary: #06b6d4;
+  --theme-primary-rgb: 6, 182, 212;
+  --theme-accent: #f59e0b;
+  --theme-accent-rgb: 245, 158, 11;
+  --theme-border: #1e293b;
+  --theme-border-rgb: 30, 41, 59;
+  --theme-glow: rgba(6, 182, 212, 0.4);
+  --theme-fab: #06b6d4;
+}
+
+@layer utilities {
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+  }
+  .safe-area-pt {
+    padding-top: env(safe-area-inset-top, 0.5rem);
+  }
+}
+
+/* Mobile responsive scrollbars and tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  overscroll-behavior-y: none;
+  background-color: var(--theme-bg);
+  color: #e2e8f0;
+}
+
+/* Custom smooth scrollbar adapted to active theme */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-primary);
+}
+
+/* ========================================================================= */
+/* GLOBAL THEME ENGINE: Adapts all screens, cards, inputs & borders in HD   */
+/* ========================================================================= */
+
+/* App background */
+body[data-theme] {
+  background-color: var(--theme-bg) !important;
+}
+
+[data-theme] .min-h-screen,
+[data-theme] .min-h-full {
+  background-color: var(--theme-bg) !important;
+}
+
+/* Card containers & modals */
+[data-theme] .bg-\[\#111722\],
+[data-theme] .bg-\[\#0f1520\],
+[data-theme] .bg-\[\#121824\],
+[data-theme] .bg-\[\#141b26\],
+[data-theme] .bg-\[\#151c24\],
+[data-theme] .bg-\[\#151c28\],
+[data-theme] .bg-\[\#18202c\],
+[data-theme] .bg-\[\#0f141c\] {
+  background-color: var(--theme-card) !important;
+}
+
+/* Terminal & inputs inner background */
+[data-theme] .bg-\[\#0a0e16\],
+[data-theme] .bg-\[\#090d14\],
+[data-theme] .bg-\[\#0b0e14\],
+[data-theme] .bg-\[\#0e131d\],
+[data-theme] .bg-\[\#0c1017\],
+[data-theme] .bg-\[\#0d121b\],
+[data-theme] .bg-\[\#101620\],
+[data-theme] textarea,
+[data-theme] input[type="text"],
+[data-theme] input[type="number"],
+[data-theme] input[type="password"] {
+  background-color: var(--theme-inner);
+}
+
+/* Borders across all cards & components */
+[data-theme] .border-slate-800,
+[data-theme] .border-slate-800\/90,
+[data-theme] .border-slate-800\/80,
+[data-theme] .border-slate-800\/60,
+[data-theme] .border-slate-900\/60,
+[data-theme] .border-slate-700\/80 {
+  border-color: var(--theme-border) !important;
+}
+
+/* Primary Color text highlights */
+[data-theme] .text-cyan-400,
+[data-theme] .text-cyan-300 {
+  color: var(--theme-primary) !important;
+}
+
+/* Accent Color text highlights */
+[data-theme] .text-amber-500,
+[data-theme] .text-amber-400 {
+  color: var(--theme-accent) !important;
+}
+
+/* Active buttons & badges */
+[data-theme] .bg-cyan-500,
+[data-theme] .bg-cyan-600 {
+  background-color: var(--theme-primary) !important;
+}
+
+[data-theme] .border-cyan-500,
+[data-theme] .border-cyan-500\/30,
+[data-theme] .border-cyan-500\/50,
+[data-theme] .border-cyan-500\/60 {
+  border-color: var(--theme-primary) !important;
+}
+
+[data-theme] .bg-cyan-950\/80,
+[data-theme] .bg-cyan-950\/40,
+[data-theme] .bg-cyan-500\/15 {
+  background-color: rgba(var(--theme-primary-rgb), 0.15) !important;
+}
+
+[data-theme] .border-cyan-800\/60,
+[data-theme] .border-cyan-800 {
+  border-color: rgba(var(--theme-primary-rgb), 0.4) !important;
+}
+
+[data-theme] .bg-amber-500\/15 {
+  background-color: rgba(var(--theme-accent-rgb), 0.15) !important;
+}
+
+[data-theme] .border-amber-500 {
+  border-color: var(--theme-accent) !important;
+}
+
+/* Floating Action Button (FAB) glow */
+[data-theme] .shadow-blue-600\/50 {
+  box-shadow: 0 10px 25px -5px var(--theme-glow) !important;
+}

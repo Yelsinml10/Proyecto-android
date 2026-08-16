@@ -1,0 +1,6 @@
+{
+  "name": "NET VPN PROXY",
+  "description": "Aplicación de conexión VPN y túneles con soporte SSH WebSocket, SSL, V2Ray, Xray, SlowDNS, Hysteria v1/v2, UDP Custom y ZiVPN.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
